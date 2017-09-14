@@ -32,5 +32,6 @@ function home(){
   $smarty->assign('tareas', $tareas);
   //Le paso la variable por parametro al Template
   //Abre una ventana aparte con un debugger
+  $smarty->debugging = true;
   $smarty->display('templates/index.tpl');
 }
