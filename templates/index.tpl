@@ -4,18 +4,8 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h1>Lista de tareas</h1>
-    <ul class="list-group">
-      <!--Inyecto en una lista cada una de las tareas obtenidas por parametro-->
-      {foreach from=$tareas item=tarea}
-      <li class="list-group-item">
-        {if $tarea['completado']}
-          <s>{$tarea['titulo']|truncate:6|upper}:{$tarea['descripcion']}</s>
-        {else}
-          {$tarea['titulo']}:{$tarea['descripcion']|truncate:6|upper}<a href="tareaCompleta/{$tarea['id_tarea']}"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></a>
-        {/if}
-        <a href="borrarTarea/{$tarea['id_tarea']}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-        {/foreach}
-      </ul>
+    <div id="tareas">
+    </div>
       <!-- <?php
       //Inserto la data recibida en una lista
       foreach ($tareas as $tarea) {

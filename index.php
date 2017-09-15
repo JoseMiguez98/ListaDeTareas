@@ -22,16 +22,26 @@ function agregarTarea(){
 }
 
 function home(){
-  $tareas = getTareas();
   $titulo = 'To do app';
   //Creo el objeto Smarty
   $smarty = new Smarty();
   //Declaro una nueva variable 'titulo' propia del Template y le asigno el valor de $titulo
   $smarty->assign('titulo', $titulo);
-  //Declaro una nueva variable 'tarea' propia del Template y le asigno el valor de $tareas[]
-  $smarty->assign('tareas', $tareas);
   //Le paso la variable por parametro al Template
   //Abre una ventana aparte con un debugger
-  $smarty->debugging = true;
+  //$smarty->debugging = true;
+  //Creo un archivo en cache de la plantilla autogenerada, para servirlo al proximo cliente que solicite la pagina y acelerar la carga
+  $smarty->caching = true;
+  //Establezco el tiempo de vida de ese archivo en cache
+  $smarty->cache_lifetime = 10; // en segundos
   $smarty->display('templates/index.tpl');
+}
+
+function mostrarTareas(){
+  $tareas = getTareas();
+  //Creo el objeto Smarty
+  $smarty = new Smarty();
+  //Declaro una nueva variable 'tarea' propia del Template y le asigno el valor de $tareas[]
+  $smarty->assign('tareas', $tareas);
+  $smarty->display('templates/tareas.tpl');
 }

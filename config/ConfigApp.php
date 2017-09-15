@@ -7,7 +7,8 @@
       'agregarTarea' => 'agregarTarea',
       'borrarTarea' => 'borrarTarea',
       '' => 'home',
-      'tareaCompleta' => 'tareaCompleta'
+      'tareaCompleta' => 'tareaCompleta',
+      'tareas' => 'mostrarTareas'
     ];
   }
 ?>
