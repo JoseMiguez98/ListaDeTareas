@@ -4,8 +4,7 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <h1>Lista de tareas</h1>
-    <div id="tareas">
-    </div>
+      {include file="tareas.tpl"}
       <!-- <?php
       //Inserto la data recibida en una lista
       foreach ($tareas as $tarea) {
