@@ -1,6 +1,9 @@
 <?php
+//Clase encargada de controlar el funcionamiento del sistema, intermediario entre el View y el Model
+
 include_once('view/TareasView.php');
 include_once('model/TareasModel.php');
+define ('HOME', 'http://'.$_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']).'/');
 
 class TareasController
 {
@@ -14,9 +17,37 @@ class TareasController
       $this->model = new TareasModel();
   }
 
+  //Metodo que le pide las tareas al modelo y les dice al view que las muestre
   function index(){
     $tareas = $this->model->getTareas();
     $this->view->mostrarTareas($tareas);
+  }
+
+  //Metodo que le pide al view que muestre el form para crear nuevas tareas
+  function create(){
+    $this->view->mostrarCrearTareas();
+  }
+
+  //Metodo que crea nuevas tareas en la BD
+  function store(){
+    //Si el tiutlo existe entonces prepara los parametros y se los envia al modelo para que los inserte
+    if(isset($_POST['titulo']) && $_POST['titulo'] != null){
+      $titulo = $_POST['titulo'];
+      $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : null;
+      $completado = isset($_POST['completado']) ? $_POST['completado'] : 0;
+      $this->model->guardarTarea($titulo, $descripcion, $completado);
+      header('Location:'.HOME);
+    }
+    //Si no le dice a la vista que comunique el error
+    else{
+      $this->view->errorCrear('El campo titulo es requerido');
+    }
+  }
+
+  function delete($id_tarea){
+    //Le digo al modelo que borre la tarea recibida por parametro
+    $this->model->borrarTarea($id_tarea[0]);
+    header('Location:'.HOME);
   }
 }
 
