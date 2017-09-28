@@ -8,7 +8,7 @@
       'guardarTarea' => 'store',
       'borrarTarea' => 'delete',
       '' => 'index',
-      'tareaCompleta' => 'tareaCompleta',
+      'tareaCompleta' => 'complete',
       'tareas' => 'mostrarTareas'
     ];
   }

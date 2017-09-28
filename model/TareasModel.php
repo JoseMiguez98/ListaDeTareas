@@ -29,6 +29,12 @@ class TareasModel
       $sentencia = $this->db->prepare("delete from tarea where id_tarea=?");
       return $sentencia->execute([$id_tarea]);
   }
+
+  //Marco una tarea como completa luego de que esta fue creada
+  function finalizarTarea($id_tarea){
+    $sentencia = $this->db->prepare('update tarea set completado=1 where id_tarea=?');
+    return $sentencia->execute([$id_tarea]);
+  }
 }
 
  ?>

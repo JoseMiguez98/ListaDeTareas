@@ -44,9 +44,15 @@ class TareasController
     }
   }
 
+  //Le digo al modelo que borre la tarea recibida por parametro
   function delete($id_tarea){
-    //Le digo al modelo que borre la tarea recibida por parametro
     $this->model->borrarTarea($id_tarea[0]);
+    header('Location:'.HOME);
+  }
+
+  //Le digo al modelo que complete la tarea recibida por parametro
+  function complete($params){
+    $this->model->finalizarTarea($params[0]);
     header('Location:'.HOME);
   }
 }
