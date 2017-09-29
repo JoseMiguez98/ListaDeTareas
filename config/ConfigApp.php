@@ -3,12 +3,12 @@
     public static $ACTION = 'action';
     public static $PARAMS = 'params';
     public static $ACTIONS = [
-      'home' => 'index',
-      'agregarTarea' => 'create',
-      'guardarTarea' => 'store',
-      'borrarTarea' => 'delete',
-      '' => 'index',
-      'tareaCompleta' => 'complete',
+      'home' => 'TareasController#index',
+      'agregarTarea' => 'TareasController#create',
+      'guardarTarea' => 'TareasController#store',
+      'borrarTarea' => 'TareasController#delete',
+      '' => 'TareasController#index',
+      'tareaCompleta' => 'TareasController#complete',
       'tareas' => 'mostrarTareas'
     ];
   }

@@ -1,7 +1,6 @@
 <?php
   include_once 'controller/TareasController.php';
   include_once 'config/ConfigApp.php';
-  $controller = new TareasController();
 
    function parseURL($url){
      //Explodeo la url para convertirla en un array
@@ -9,6 +8,7 @@
      //Creo un nuevo array y en la posición 'action' le asigno la acción recibida
      $arrayReturn[ConfigApp::$ACTION] = $urlExploded[0];
      //Si esta seteado, llama al metodo array_slice(), lo que hace este metodo es crear un arrego a partir de una posición dada, en este caso desde la posición 1
+     //Y se lo asigno a la posición 'params'
      $arrayReturn[ConfigApp::$PARAMS] = isset($urlExploded[1]) ? array_slice($urlExploded, 1) : null;
 
      return $arrayReturn;
@@ -19,8 +19,10 @@
       $action = $parsedURL[ConfigApp::$ACTION];
       //Controlo si existe la accion pedida en el arreglo de acciones disponibles de 'ConfigApp.php'
       if(array_key_exists($action , ConfigApp::$ACTIONS)){
+        $action = explode('#', ConfigApp::$ACTIONS[$action]);
+        $controller = new $action[0]();
+        $method = $action[1];
         $params = $parsedURL[ConfigApp::$PARAMS];
-        $method = ConfigApp::$ACTIONS[$action];
         if(isset($params) && $params != null){
           echo $controller->$method($params);
         }
