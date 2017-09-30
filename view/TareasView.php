@@ -1,11 +1,8 @@
 <?php
-//Clase encagada de controlar la View, con sus respectivos metodos
+include_once 'View.php';
 
-include_once 'libs/Smarty.class.php';
-class TareasView
+class TareasView extends View
 {
-  private $smarty;
-
   //El constructor crea una nueva instancia de smarty ya que esta clase es el 'view'
   function __construct()
   {

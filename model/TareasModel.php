@@ -1,16 +1,8 @@
 <?php
-//Clase encargada de controlar todo lo que es logica y procesamiento de datos
+include_once 'Model.php'
 
-class TareasModel
+class TareasModel extends Model
 {
-  private $db;
-
-  //Este constructor establece la conexión con la base de datos
-  function __construct()
-  {
-    $this->db = new PDO('mysql:host=localhost;'.'dbname=db_tareas;charset=utf8', 'root', '');
-  }
-
   function getTareas()
   {
     $sentencia = $this->db->prepare("select * from tarea");
