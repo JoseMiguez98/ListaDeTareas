@@ -22,6 +22,10 @@ class LoginController extends Controller
       $user = $this->model->getUser($userName);
       //SI el usuario existe en la BBDD y el password coincide entonces le doy acceso a la lista de tareas
       if(!empty($user) && password_verify($userPassword, $user[0]['password'])){
+        //Creo una sesión de usuario en el server
+        session_start();
+        //Seteo el nombre del usuario propietario de las sesión
+        $_SESSION['usuario'] = $userName;
           header('Location:'.HOME);
     }
     else{

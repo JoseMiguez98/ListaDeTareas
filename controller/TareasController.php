@@ -1,12 +1,15 @@
 <?php
-include_once('Controller.php');
+include_once('SecuredController.php');
 include_once('view/TareasView.php');
 include_once('model/TareasModel.php');
-class TareasController extends Controller
+
+class TareasController extends SecuredController
 {
   //EL constructor crea las instancias de vista y modelo ya que es el intermediario
   function __construct()
   {
+      //Llamo al super constructor
+      parent::__construct();
       $this->view = new TareasView();
       $this->model = new TareasModel();
   }
