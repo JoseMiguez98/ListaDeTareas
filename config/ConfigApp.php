@@ -10,7 +10,8 @@
       '' => 'TareasController#index',
       'tareaCompleta' => 'TareasController#complete',
       'tareas' => 'mostrarTareas',
-      'login' => 'LoginController#index'
+      'login' => 'LoginController#index',
+      'verificarUsuario' => 'LoginController#verify'
     ];
   }
 ?>

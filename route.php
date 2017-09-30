@@ -1,6 +1,7 @@
 <?php
-  include_once 'controller/TareasController.php';
   include_once 'config/ConfigApp.php';
+  include_once 'controller/TareasController.php';
+  include_once 'controller/LoginController.php';
 
    function parseURL($url){
      //Explodeo la url para convertirla en un array

@@ -1,5 +1,5 @@
 <?php
-include_once 'Model.php'
+include_once 'Model.php';
 
 class TareasModel extends Model
 {
