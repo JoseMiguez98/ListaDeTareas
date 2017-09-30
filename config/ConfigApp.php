@@ -11,7 +11,8 @@
       'tareaCompleta' => 'TareasController#complete',
       'tareas' => 'mostrarTareas',
       'login' => 'LoginController#index',
-      'verificarUsuario' => 'LoginController#verify'
+      'verificarUsuario' => 'LoginController#verify',
+      'logout' => 'LoginController#destroy'
     ];
   }
 ?>

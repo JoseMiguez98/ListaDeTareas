@@ -8,3 +8,4 @@
 </head>
 <body>
   <div class="container-fluid">
+    <a class="nav" href="logout">Logout</a>

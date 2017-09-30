@@ -26,7 +26,9 @@ class LoginController extends Controller
         session_start();
         //Seteo el nombre del usuario propietario de las sesión
         $_SESSION['usuario'] = $userName;
-          header('Location:'.HOME);
+        //Inicializo un contador de tiempo de la sesión
+        $_SESSION['LAST_ACTIVITY'] = time();
+        header('Location:'.HOME);
     }
     else{
       $this->view->loginError('El usuario o contraseña son incorrectos');
@@ -36,6 +38,12 @@ class LoginController extends Controller
     else{
       $this->view->loginError('El campo usuario o contraseña esta vacio');
     }
+  }
+
+  function destroy(){
+    session_start();
+    session_destroy();
+    header('Location:'.LOGIN);
   }
 }
  ?>
