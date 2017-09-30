@@ -9,7 +9,8 @@
       'borrarTarea' => 'TareasController#delete',
       '' => 'TareasController#index',
       'tareaCompleta' => 'TareasController#complete',
-      'tareas' => 'mostrarTareas'
+      'tareas' => 'mostrarTareas',
+      'login' => 'LoginController#index'
     ];
   }
 ?>
