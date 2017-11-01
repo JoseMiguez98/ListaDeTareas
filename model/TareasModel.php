@@ -3,8 +3,13 @@ include_once 'Model.php';
 
 class TareasModel extends Model
 {
-  function getTareas()
-  {
+  function getTarea($id){
+    $sentencia = $this->db->prepare("SELECT * FROM tarea WHERE id_tarea=?");
+    $sentencia->execute([$id]);
+    return $sentencia->fetch(PDO::FETCH_ASSOC);
+  }
+
+  function getTareas(){
     $sentencia = $this->db->prepare("select * from tarea");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -17,9 +22,9 @@ class TareasModel extends Model
   }
 
   function borrarTarea($id_tarea){
-      //Preparo la sentencia delete, en el signo de pregunta entra el parametro
-      $sentencia = $this->db->prepare("delete from tarea where id_tarea=?");
-      return $sentencia->execute([$id_tarea]);
+    //Preparo la sentencia delete, en el signo de pregunta entra el parametro
+    $sentencia = $this->db->prepare("delete from tarea where id_tarea=?");
+    return $sentencia->execute([$id_tarea]);
   }
 
   //Marco una tarea como completa luego de que esta fue creada
@@ -29,4 +34,4 @@ class TareasModel extends Model
   }
 }
 
- ?>
+?>
