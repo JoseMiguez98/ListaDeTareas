@@ -15,8 +15,7 @@ class TareasController extends SecuredController
   }
   //Metodo que le pide las tareas al modelo y les dice al view que las muestre
   function index(){
-    $tareas = $this->model->getTareas();
-    $this->view->mostrarTareas($tareas);
+    $this->view->mostrarIndex();
   }
   //Metodo que le pide al view que muestre el form para crear nuevas tareas
   function create(){
@@ -46,6 +45,11 @@ class TareasController extends SecuredController
   function complete($params){
     $this->model->finalizarTarea($params[0]);
     header('Location:'.HOME);
+  }
+
+  // ----------------->TEST<--------------------
+  function test(){
+    $this->view->mostrarTemplatePrueba();
   }
 }
  ?>

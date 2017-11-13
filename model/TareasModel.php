@@ -32,6 +32,14 @@ class TareasModel extends Model
     $sentencia = $this->db->prepare('update tarea set completado=1 where id_tarea=?');
     return $sentencia->execute([$id_tarea]);
   }
+
+  function actualizarTarea($id_tarea, $jdata){
+    $titulo = $jdata[0]->titulo;
+    $descripcion = $jdata[0]->descripcion;
+    $sentencia = $this->db->prepare('UPDATE tarea SET titulo=?, descripcion=? WHERE id_tarea=?');
+    return $sentencia->execute([$titulo, $descripcion, $id_tarea]);
+    //return $sentencia->fetch(PDO::FETCH_ASSOC);
+  }
 }
 
 ?>

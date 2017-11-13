@@ -7,9 +7,9 @@
       'agregarTarea' => 'TareasController#create',
       'guardarTarea' => 'TareasController#store',
       'borrarTarea' => 'TareasController#delete',
+      'templateTest' => 'TareasController#test',
       '' => 'TareasController#index',
       'tareaCompleta' => 'TareasController#complete',
-      'tareas' => 'mostrarTareas',
       'login' => 'LoginController#index',
       'verificarUsuario' => 'LoginController#verify',
       'logout' => 'LoginController#destroy'
